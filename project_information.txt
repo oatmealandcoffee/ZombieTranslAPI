@@ -1,0 +1,19 @@
+Project: Zombie_TranslAPI
+Author(s): Philip Regan
+Source Code Copyright: Copyright (c) 2015 Philip Regan All Rights Reserved.
+Additional Copyright: None
+Source: New source only; no adaptations.
+Requirements: None
+Notes:
+*
+
+Bugs:
+*
+
+Roadmap:
+*
+
+Change History:
+    15_12_03_01_00_000: Started source
+
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Started source"; git push origin master; git status
