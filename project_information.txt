@@ -11,9 +11,32 @@ Bugs:
 *
 
 Roadmap:
-*
+* Wrap zombify into CommonJS modules
+> Build core server
+	X on listen, log that the server has been started and the port
+	X on connection, log user info
+		X time
+		X route
+		X status
+		X user-agent
+	X GET '/'
+		* display API instructions from HTML file
+			// see https://dev.twitter.com/rest/reference/get/friendships/lookup
+	* GET '/zombify' 
+		* accept query parameter containing text to translate
+		* return JSON {key:result}
+	* GET '/unzombify' 
+		* accept query parameter containing text to translate
+		* return JSON {key:result}
+	* Errors
+		* 414 if parameter is > 1000 characters
+			* { "status": 414, "message": "parameter too long" }
+		X 404 for any invalid routes
+			* { "status": 404, "message": "file not found" }
+X npm start
 
 Change History:
     15_12_03_01_00_000: Started source
-
+	15_12_03_01_00_000: Added core server functionality
+	
     cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Started source"; git push origin master; git status
