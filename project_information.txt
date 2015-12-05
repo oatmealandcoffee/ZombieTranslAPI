@@ -33,7 +33,7 @@ Roadmap:
 	* Errors
 		* 414 if parameter is > 1000 characters
 			* { "status": 414, "message": "parameter too long" }
-		X 404 for any invalid routes
+		* 404 for any invalid routes
 			* { "status": 404, "message": "file not found" }
 X npm start
 
@@ -41,5 +41,6 @@ Change History:
     15_12_03_01_00_000: Started source
 	15_12_03_01_01_000: Added core server functionality
 	15_12_03_01_02_000: Added zombify path with reading of query string
+	15_12_03_01_03_000: Added url and query parsing to zombify and unzombify
 	
-    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Added zombify path with reading of query string"; git push origin master; git status
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Added url and query parsing to zombify and unzombify"; git push origin master; git status

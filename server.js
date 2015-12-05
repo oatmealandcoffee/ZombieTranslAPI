@@ -14,7 +14,6 @@ var handleRequest = function (request, response) {
     // Parse the request containing file name
     var wantParameters = true;
     var purl = url.parse(request.url, wantParameters);
-    console.log(purl);
 
    if ( purl.pathname === '/' ) {
        response.writeHead(200, {'Content-Type':'text/html'});
@@ -29,8 +28,44 @@ var handleRequest = function (request, response) {
        });
    } else if (purl.pathname === '/zombify') {
 
-       response.writeHead(200, {'Content-Type':'text/html'});
-       response.end(purl.query.foo);
+       var src = purl.query.src;
+       if ( src ) {
+
+           if ( src.length > 1000 ) {
+               response.writeHead(414);
+               response.end('parameter too long');
+           } else {
+               response.writeHead(200, {'Content-Type':'text/html'});
+               response.end(src);
+           }
+
+       } else {
+
+           response.writeHead(200, {'Content-Type':'text/html'});
+           response.end('No source text found.');
+
+       }
+
+   } else if (purl.pathname === '/unzombify') {
+
+       var src = purl.query.src;
+       if ( src ) {
+
+           if ( src.length > 1000 ) {
+               response.writeHead(414);
+               response.end('parameter too long');
+           } else {
+               response.writeHead(200, {'Content-Type':'text/html'});
+               response.end(src);
+           }
+
+       } else {
+
+           response.writeHead(200, {'Content-Type':'text/html'});
+           response.end('No source text found.');
+
+       }
+
 
    } else {
        response.writeHead(404);
