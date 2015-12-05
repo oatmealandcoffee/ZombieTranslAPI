@@ -24,11 +24,10 @@ Roadmap:
 	X GET '/'
 		* display API instructions from HTML file
 			// see https://dev.twitter.com/rest/reference/get/friendships/lookup
-	* GET '/zombify' 
-		* accept query parameter containing text to translate
-		* return JSON {key:result}
-	* GET '/unzombify' 
-		* accept query parameter containing text to translate
+	X GET '/zombify' and GET '/zombify' 
+		X accept query parameter containing text to translate
+		* Move duplicate URL parsing to function
+		* Add module that handles traffic between translation functions and server requirements
 		* return JSON {key:result}
 	* Errors
 		* 414 if parameter is > 1000 characters
