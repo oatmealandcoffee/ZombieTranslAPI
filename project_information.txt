@@ -12,6 +12,8 @@ Bugs:
 
 Roadmap:
 * Wrap zombify into CommonJS modules
+	* translate.js
+	* 
 > Build core server
 	X on listen, log that the server has been started and the port
 	X on connection, log user info
@@ -37,6 +39,7 @@ X npm start
 
 Change History:
     15_12_03_01_00_000: Started source
-	15_12_03_01_00_000: Added core server functionality
+	15_12_03_01_01_000: Added core server functionality
+	15_12_03_01_02_000: Added zombify path with reading of query string
 	
-    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Started source"; git push origin master; git status
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Added zombify path with reading of query string"; git push origin master; git status

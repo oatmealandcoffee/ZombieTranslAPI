@@ -5,14 +5,18 @@ var url = require('url');
 
 // proprietary components
 var logger = require('./logger.js');
+var zombify = require('./translateZombify.js');
+var unzombify = require('./translateUnzombify.js');
 
 // Create a server
-var server = http.createServer( function (request, response) {
+var handleRequest = function (request, response) {
 
-   // Parse the request containing file name
-   var purl = url.parse(request.url).pathname;
+    // Parse the request containing file name
+    var wantParameters = true;
+    var purl = url.parse(request.url, wantParameters);
+    console.log(purl);
 
-   if ( purl === '/' ) {
+   if ( purl.pathname === '/' ) {
        response.writeHead(200, {'Content-Type':'text/html'});
 
        var file = fs.createReadStream('index.html');
@@ -23,15 +27,22 @@ var server = http.createServer( function (request, response) {
        file.on('finished', function(){
            response.end();
        });
+   } else if (purl.pathname === '/zombify') {
+
+       response.writeHead(200, {'Content-Type':'text/html'});
+       response.end(purl.query.foo);
 
    } else {
        response.writeHead(404);
        response.end('File not found.');
+
    }
 
    logger( request, response );
 
-});
+};
+
+var server = http.createServer( handleRequest );
 
 server.listen(7000, function(){
     console.log("listening on 7000");
