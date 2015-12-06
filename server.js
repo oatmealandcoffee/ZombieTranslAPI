@@ -29,11 +29,12 @@ var handleRequest = function (request, response) {
 
        var result = translate( purl );
 
-       response.writeHead( 200, {'Content-Type':'text/html'} );
+       response.writeHead( result.status , {'Content-Type':'text/html'} );
+
        if ( result.text ) {
-           response.end( result.text );
+           response.end( result.text + '' );
        } else {
-           response.end( result.status );
+           response.end( result.message + '' );
        }
 
    } else {
