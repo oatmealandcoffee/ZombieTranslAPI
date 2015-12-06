@@ -47,5 +47,8 @@ Change History:
 	15_12_03_01_03_000: Added url and query parsing to zombify and unzombify
 	15_12_03_01_04_000: Updated translate to single stub CommonJS module
 	15_12_03_01_05_000: Added full two-way translation
-	 
-    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Updated translate to single stub CommonJS module"; git push origin master; git status
+	15_12_03_01_06_000: Updated to handle direct status code write for all variations
+	15_12_03_01_07_000: Updated to include markdown
+	
+	
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Updated to include markdown"; git push origin master; git status

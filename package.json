@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/oatmealandcoffee/ZombieTranslAPI/issues"
   },
-  "homepage": "https://github.com/oatmealandcoffee/ZombieTranslAPI#readme"
+  "homepage": "https://github.com/oatmealandcoffee/ZombieTranslAPI#readme",
+  "dependencies": {
+    "markdown": "^0.5.0"
+  }
 }

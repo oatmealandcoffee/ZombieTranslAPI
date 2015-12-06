@@ -4,8 +4,17 @@ var fs = require('fs');
 var url = require('url');
 
 // proprietary components
+
 var logger = require('./logger.js');
 var translate = require('./translateMain.js').translate;
+
+// markdown handling
+var markdownTransformer = require('./markdownTransformer');
+var handleMarkdown = function(filename, response){
+  response.writeHead(200, {'Content-Type': 'text/html'});
+  var file = fs.createReadStream(filename);
+  file.pipe(markdownTransformer()).pipe(response);
+};
 
 // Create a server
 var handleRequest = function (request, response) {
@@ -15,16 +24,7 @@ var handleRequest = function (request, response) {
     var purl = url.parse(request.url, wantParameters);
 
    if ( purl.pathname === '/' ) {
-       response.writeHead(200, {'Content-Type':'text/html'});
-
-       var file = fs.createReadStream('index.html');
-
-       // main route of chunks from read stream to the write stream
-       file.pipe( response );
-
-       file.on('finished', function(){
-           response.end();
-       });
+       handleMarkdown('apidoc.md', response);
    } else if (purl.pathname === '/zombify' || purl.pathname === '/unzombify' ) {
 
        var result = translate( purl );
