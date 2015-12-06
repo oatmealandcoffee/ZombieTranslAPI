@@ -43,12 +43,12 @@ X npm start
 Change History:
     15_12_03_01_00_000: Started source
 	15_12_03_01_01_000: Added core server functionality
-	15_12_03_01_02_000: Added zombify path with reading of query string
-	15_12_03_01_03_000: Added url and query parsing to zombify and unzombify
-	15_12_03_01_04_000: Updated translate to single stub CommonJS module
-	15_12_03_01_05_000: Added full two-way translation
-	15_12_03_01_06_000: Updated to handle direct status code write for all variations
-	15_12_03_01_07_000: Updated to include markdown
+	15_12_05_01_02_000: Added zombify path with reading of query string
+	15_12_05_01_03_000: Added url and query parsing to zombify and unzombify
+	15_12_05_01_04_000: Updated translate to single stub CommonJS module
+	15_12_06_01_05_000: Added full two-way translation
+	15_12_06_01_06_000: Updated to handle direct status code write for all variations
+	15_12_06_01_07_000: Updated to include markdown
+	15_12_06_01_08_000: Updated all API docs and a couple bug fixes
 	
-	
-    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Updated to include markdown"; git push origin master; git status
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Updated all API docs and a couple bug fixes"; git push origin master; git status
