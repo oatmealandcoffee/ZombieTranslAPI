@@ -5,8 +5,7 @@ var url = require('url');
 
 // proprietary components
 var logger = require('./logger.js');
-var zombify = require('./translateZombify.js');
-var unzombify = require('./translateUnzombify.js');
+var translate = require('./translateMain.js').translate;
 
 // Create a server
 var handleRequest = function (request, response) {
@@ -26,49 +25,20 @@ var handleRequest = function (request, response) {
        file.on('finished', function(){
            response.end();
        });
-   } else if (purl.pathname === '/zombify') {
+   } else if (purl.pathname === '/zombify' || purl.pathname === '/unzombify' ) {
 
-       var src = purl.query.src;
-       if ( src ) {
+       var result = translate( purl );
 
-           if ( src.length > 1000 ) {
-               response.writeHead(414);
-               response.end('parameter too long');
-           } else {
-               response.writeHead(200, {'Content-Type':'text/html'});
-               response.end(src);
-           }
-
+       response.writeHead( 200, {'Content-Type':'text/html'} );
+       if ( result.text ) {
+           response.end( result.text );
        } else {
-
-           response.writeHead(200, {'Content-Type':'text/html'});
-           response.end('No source text found.');
-
+           response.end( result.status );
        }
-
-   } else if (purl.pathname === '/unzombify') {
-
-       var src = purl.query.src;
-       if ( src ) {
-
-           if ( src.length > 1000 ) {
-               response.writeHead(414);
-               response.end('parameter too long');
-           } else {
-               response.writeHead(200, {'Content-Type':'text/html'});
-               response.end(src);
-           }
-
-       } else {
-
-           response.writeHead(200, {'Content-Type':'text/html'});
-           response.end('No source text found.');
-
-       }
-
 
    } else {
-       response.writeHead(404);
+
+       response.writeHead(404, {'Content-Type':'text/html'});
        response.end('File not found.');
 
    }

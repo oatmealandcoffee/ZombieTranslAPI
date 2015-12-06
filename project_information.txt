@@ -41,5 +41,6 @@ Change History:
 	15_12_03_01_01_000: Added core server functionality
 	15_12_03_01_02_000: Added zombify path with reading of query string
 	15_12_03_01_03_000: Added url and query parsing to zombify and unzombify
+	15_12_03_01_04_000: Updated translate to single stub CommonJS module
 	
-    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Added url and query parsing to zombify and unzombify"; git push origin master; git status
+    cd /Users/philipr/cscie32/Zombie_TranslAPI/ZombieTranslAPI; git status; git commit -a -m "Updated translate to single stub CommonJS module"; git push origin master; git status
